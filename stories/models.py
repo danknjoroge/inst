@@ -5,7 +5,7 @@ from django.db import models
 class Image(models.Model):
     image = models.ImageField()
     img_name= models.CharField(max_length=44)
-    img_caption= models.CharField(max_length=277)
+    img_caption= models.TextField()
     likes = models.IntegerField()
     comments = models.CharField(max_length=1001)
 
@@ -14,3 +14,22 @@ class Image(models.Model):
 
     def delete_image(self):
         self.delete()
+
+
+
+class Profile(models.Model):
+    photo = models.ImageField()
+    bio = models.TextField()
+
+
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        self.delete()
+
+
+
+
+
+
