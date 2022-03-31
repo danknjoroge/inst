@@ -5,10 +5,16 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+        </ul>
         {% if user.is_authenticated %}
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <!-- <a class="nav-link active" aria-current="page" href="/">Home</a> -->
+            <h4>Welcome {{ user }}</h4>
           </li>
           <li>
             <a class='btn btn-default' href="/accounts/logout">Logout</a>
