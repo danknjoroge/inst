@@ -23,6 +23,7 @@ class Image(models.Model):
     likes = models.IntegerField()
     comments = models.CharField(max_length=1001)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    post_date = models.DateTimeField(auto_now_add=True)
 
     def save_image(self):
         self.save()
