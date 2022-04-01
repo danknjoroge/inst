@@ -7,4 +7,6 @@ def index(request):
     return render(request, 'index.html', {"image": image})
 
 def home(request):
-    return render(request, 'home.html')
+    image = Image.objects.all()
+
+    return render(request, 'home.html', {"image": image})

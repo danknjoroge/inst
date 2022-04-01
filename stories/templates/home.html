@@ -4,4 +4,10 @@
 {% block content %}
 <!-- {% bs_icon 'house' size='1.5em' %} -->
 <h1>Hello {{ user }}, You have successfully logged in!</h1>
+
+{%for img in image %}
+    {{img.img_name}}
+    {{img.image.url}}
+    <img src="{{img.image.url}}" alt="all" style="width: 223px;">
+{% endfor %}
 {% endblock content %}
