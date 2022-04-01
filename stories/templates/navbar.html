@@ -16,13 +16,12 @@
         </ul>
         {% if user.is_authenticated %}
 
-        <form class="navbar-form" role="search" action="">
+        <form class="navbar-form" role="search" action="{% url 'search' %}">
 
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search by category. e.g food" name="image">
+            <input type="text" class="form-control" placeholder="Search" name="image">
             <div class="input-group-btn">
-              <a class='btn btn-default'href="">{% bs_icon 'search' size='1.5em' color='orangered' %}</a>
-            </div>
+              <button class="btn btn-default" type="submit">{% bs_icon 'search' size='1.5em' color='orangered' %}</button>            </div>
           </div>
 
         </form>
