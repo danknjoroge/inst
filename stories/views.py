@@ -19,7 +19,7 @@ def home(request):
 def search(request):
     if 'image' in request.GET and request.GET['image']:
         searchname = request.GET.get('image')
-        searchimage= Image.search_by_img_name(searchname)
+        searchimage= Image.search_by_image_name(searchname)
         message = f"{searchname}"
 
         return render(request, 'search.html', {"message": message, "image": searchimage})
@@ -39,12 +39,12 @@ def single_image(request, image_id):
 
 @login_required(login_url='/accounts/login/')
 def new_post(request):
-    # current_user = request.user
+    current_user = request.user
     if request.method == 'POST':
         form = PostForm(request.POST,request.FILES)
         if form.is_valid():
             image = form.save(commit=False)
-
+            image.profile = current_user
             image.save()
         return redirect('home')
     else:

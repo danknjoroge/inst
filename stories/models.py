@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 from tinymce.models import HTMLField
 
 # Create your models here.
@@ -21,11 +23,11 @@ class Profile(models.Model):
 
 class Image(models.Model):
     image = models.ImageField(upload_to= 'images/', default="Image")
-    img_name= models.CharField(max_length=44)
-    img_caption= HTMLField()
-    likes = models.IntegerField()
-    comments = models.TextField()
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    image_name= models.CharField(max_length=44)
+    image_caption= HTMLField()
+    likes = models.IntegerField(default="0")
+    comments = models.TextField(default="No Comment")
+    profile = models.ForeignKey(User, on_delete=models.CASCADE)
     post_date = models.DateTimeField(auto_now_add=True)
 
     def save_image(self):
@@ -35,8 +37,8 @@ class Image(models.Model):
         self.delete()
 
     @classmethod
-    def search_by_img_name(cls, searchname):
-        image = cls.objects.filter(img_name__icontains=searchname)
+    def search_by_image_name(cls, searchname):
+        image = cls.objects.filter(image_name__icontains=searchname)
         return image
 
 

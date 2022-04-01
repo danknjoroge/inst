@@ -6,10 +6,16 @@
 <h1>Hello {{ user }}, You have successfully logged in!</h1>
 
 {%for img in image %}
-    <!-- {{img.img_name}}
+    <!-- {{ima.img_name}}
     {{img.image.url}} -->
-    <img src="{{img.image.url}}" alt="all" style="width: 223px;">
+    <!-- <img src="{{img.image.url}}" alt="all" style="width: 223px;"> -->
     <a href="{% url 'image' img.id %}"><img src="{{img.image.url}}" class="card" alt="..." style="width: 233px;"> </a>
+    <div class="row">
+        {% autoescape on %}
+        {{article.post| safe}}
+       {% endautoescape %}
+   
+      </div>
 
 {% endfor %}
 {% endblock content %}
