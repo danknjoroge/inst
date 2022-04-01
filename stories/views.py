@@ -1,5 +1,8 @@
+from django.http import Http404
 from django.shortcuts import render
 from .models import Image
+from django.core.exceptions import ObjectDoesNotExist
+
 
 # Create your views here.
 def index(request):
@@ -21,7 +24,6 @@ def search(request):
     else:
         message ="You havent searched any images "
         return render(request, 'search.html',{"message": message})
-
 
 
 

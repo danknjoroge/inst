@@ -1,0 +1,9 @@
+{%extends "django_registration/base.html"%}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block content%}
+    <img src="{{image.image.url}}" alt="" srcset="" style="width: 223px;">
+    {{image.post_date}}
+    <!-- {{user}} -->
+{% endblock %}
