@@ -1,7 +1,9 @@
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Image
+from .forms import PostForm
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -25,7 +27,7 @@ def search(request):
         message ="You havent searched any images "
         return render(request, 'search.html',{"message": message})
 
-
+@login_required(login_url='/accounts/login/')
 def single_image(request, image_id):
     try:
         image = Image.objects.get(id=image_id)
@@ -35,6 +37,19 @@ def single_image(request, image_id):
     return render(request, 'single_image.html', {'image': image})
 
 
+@login_required(login_url='/accounts/login/')
+def new_post(request):
+    # current_user = request.user
+    if request.method == 'POST':
+        form = PostForm(request.POST,request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+
+            image.save()
+        return redirect('home')
+    else:
+        form = PostForm()
+    return render(request, 'post.html', {'form': form})
 
 
 
