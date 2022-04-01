@@ -1,5 +1,7 @@
 {%extends "django_registration/base.html"%}
+{% load bootstrap_icons %}
 
 {% block content %}
-<h1>Hello there, You have successfully logged in!</h1>
+<!-- {% bs_icon 'house' size='1.5em' %} -->
+<h1>Hello {{ user }}, You have successfully logged in!</h1>
 {% endblock content %}

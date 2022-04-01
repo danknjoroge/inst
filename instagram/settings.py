@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'stories',
     'bootstrap5',
     'fontawesome_5',
+    'django_bootstrap_icons'
 
 
 ]
@@ -140,7 +141,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 LOGIN_REDIRECT_URL='home'
-LOGOUT_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "index"
 REGISTER_REDIRECT_URL = 'home'
 
 
