@@ -6,6 +6,7 @@ from django.contrib.auth.views import LoginView
 
 urlpatterns = [
     re_path(r'^$', views.index, name='index'),
+    path(r'home/', views.home, name='home'),
     path('accounts/', include('django_registration.backends.one_step.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     re_path(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'), 
