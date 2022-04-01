@@ -26,6 +26,14 @@ def search(request):
         return render(request, 'search.html',{"message": message})
 
 
+def single_image(request, image_id):
+    try:
+        image = Image.objects.get(id=image_id)
+    except ObjectDoesNotExist:
+        raise Http404()
+
+    return render(request, 'single_image.html', {'image': image})
+
 
 
 
