@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'stories',
     'bootstrap5',
     'fontawesome_5',
-    'django_bootstrap_icons'
+    'django_bootstrap_icons',
+    'tinymce',
 
 
 ]

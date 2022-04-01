@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce.models import HTMLField
 
 # Create your models here.
 
@@ -21,7 +22,7 @@ class Profile(models.Model):
 class Image(models.Model):
     image = models.ImageField(upload_to= 'images/', default="Image")
     img_name= models.CharField(max_length=44)
-    img_caption= models.TextField()
+    img_caption= HTMLField()
     likes = models.IntegerField()
     comments = models.TextField()
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
