@@ -20,5 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'', include('stories.urls')),
     re_path(r'^tinymce/', include('tinymce.urls')),
-
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

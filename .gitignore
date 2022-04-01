@@ -1,8 +1,7 @@
-.env/
+.env
 stories/settings.py
 
-# db-admin:moringa
-# db-pass:Access12
+
 
 
 
