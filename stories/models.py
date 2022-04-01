@@ -1,4 +1,3 @@
-from email.mime import image
 from django.db import models
 
 # Create your models here.
@@ -14,14 +13,17 @@ class Profile(models.Model):
     def delete_profile(self):
         self.delete()
 
+    def __str__(self):
+        return self.bio
+
 
 
 class Image(models.Model):
-    image = models.ImageField()
+    image = models.ImageField(upload_to= 'images/', default="Image")
     img_name= models.CharField(max_length=44)
     img_caption= models.TextField()
     likes = models.IntegerField()
-    comments = models.CharField(max_length=1001)
+    comments = models.TextField()
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     post_date = models.DateTimeField(auto_now_add=True)
 
@@ -30,6 +32,9 @@ class Image(models.Model):
 
     def delete_image(self):
         self.delete()
+
+    def __str__(self):
+        return self.img_name
 
 
 
