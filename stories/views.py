@@ -61,15 +61,15 @@ def profile(request):
 def edit_profile(request):
     current_user = request.user
     if request.method == 'POST':
-        form = ProfileForm(request.POST, request.FILES)
-        if form.is_valid():
-            profile = form.save(commit=False)
+        prof_form = ProfileForm(request.POST, request.FILES)
+        if prof_form.is_valid():
+            profile = prof_form.save(commit=False)
             profile.user = current_user
             profile.save()
         return redirect('profile')
     else:
-        form= PostForm()
-    return render(request, 'update.html', {'form': form})
+        prof_form= ProfileForm()
+    return render(request, 'update.html', {'prof_form': prof_form})
         
 
 

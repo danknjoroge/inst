@@ -8,7 +8,7 @@ class PostForm(forms.ModelForm):
         exclude = ['likes', 'comments','profile', 'post_date']
 
 
-class ProfileForm(forms.Form):
+class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ['posts', 'followers', 'following', 'user']
