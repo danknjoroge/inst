@@ -11,7 +11,7 @@ class PostForm(forms.ModelForm):
 class ProfileForm(forms.Form):
     class Meta:
         model = Profile
-        exclude = ['posts', 'followers', 'following']
+        exclude = ['posts', 'followers', 'following', 'user']
         
 
 

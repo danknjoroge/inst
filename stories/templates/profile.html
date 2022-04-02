@@ -8,20 +8,17 @@
     {% for photo in profile %}
     <img src="{{ photo.photo.url}}" class="img-fluid img-thumbnail rounded-circle" style="width: 150px;" alt="Avatar" />
     {{ user}}
-    <button>Edit Profile</button>
+    <a href="{% url 'editprofile' %}"> <button>Edit Profile</button> </a>
     <!-- <img class="rounded-circle" alt="80x80" src="{{ photo.photo.url}}" data-holder-rendered="true" style="width: 150px;"> -->
     <!-- {% bs_icon 'person-fill' size='' color='orangered' %} -->
     {{photo.posts}} Posts
     {{photo.followers}} Followers
     {{photo.following}} Following
+    {{photo.user}}
 
 
     {% endfor %}
 
 </div>
-
-
-
-
 
 {% endblock %}

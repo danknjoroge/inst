@@ -11,8 +11,9 @@ urlpatterns = [
     path(r'home/', views.home, name='home'),
     path(r'search/', views.search, name='search'),
     path(r'image/<int:image_id>', views.single_image, name='image'),
-    path(r'post', views.new_post, name='post'),
-    path(r'profile', views.profile, name='profile'),
+    path(r'post/', views.new_post, name='post'),
+    path(r'profile/', views.profile, name='profile'),
+    path(r'editprofile/', views.edit_profile, name='editprofile'),
 
     path('accounts/', include('django_registration.backends.one_step.urls')),
     path('accounts/', include('django.contrib.auth.urls')),

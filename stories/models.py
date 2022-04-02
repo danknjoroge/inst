@@ -12,6 +12,7 @@ class Profile(models.Model):
     posts = models.IntegerField(default=0)
     followers = models.IntegerField(default=0)
     following = models.IntegerField(default=0)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
 
     def save_profile(self):
