@@ -3,6 +3,11 @@
 {% load static%}
 {% load bootstrap5 %}
 
+{% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
 {% block content %}
 <!-- {% bs_icon 'house' size='1.5em' %} -->
 <h1>Hello {{ user }}, You have successfully logged in!</h1>
@@ -35,7 +40,13 @@
               <p class="card-text">{{img.post_date}}</p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">An item</li>
+              
+                <input type="text" id="comment-box" placeholder="Enter comment">
+                <button id="post">Post</button>
+                <ul id="unordered">
+       
+                
+              </li>
                <!-- <li class="list-group-item">A second item</li>
               <li class="list-group-item">A third item</li>  -->
             </ul>
@@ -57,6 +68,17 @@
         numCount ++
         count.innerText = numCount
 }
+
+var post= document.getElementById("post");
+post.addEventListener("click", function(){
+    var commentBoxValue= document.getElementById("comment-box").value;
+ 
+    var li = document.createElement("li");
+    var text = document.createTextNode(commentBoxValue);
+    li.appendChild(text);
+    document.getElementById("unordered").appendChild(li);
+ 
+});
       </script>
     {% bootstrap_javascript %}
     {% endblock  %}

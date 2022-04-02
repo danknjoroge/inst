@@ -1,4 +1,5 @@
 {% load bootstrap_icons %}
+{% load bootstrap5 %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-expand">
     <div class="container-fluid">
@@ -30,6 +31,7 @@
             <a class='btn btn-default'href="{% url 'profile' %}">{% bs_icon 'person-fill' size='1.5em' color='orangered' %}</a>
             <a class='btn btn-default'href="{%url 'post'%}">{% bs_icon 'cloud-upload-fill' size='1.5em' color='orangered' %}</a>
 
+            
             <!-- <h4>Welcome {{ user }}</h4> -->
             <a class='btn btn-default' href="/accounts/logout">Logout</a>
         {% else %}

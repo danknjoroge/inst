@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from emoji_picker.widgets import EmojiPickerTextInputAdmin, EmojiPickerTextareaAdmin
 
 from tinymce.models import HTMLField
 

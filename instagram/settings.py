@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'fontawesome_5',
     'django_bootstrap_icons',
     'tinymce',
+    'emoji_picker',
 
 
 ]
