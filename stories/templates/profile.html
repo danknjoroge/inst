@@ -3,24 +3,42 @@
 {% load static%}
 {% load bootstrap5 %}
 
+{% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
 {% block content %}
-<div style="margin-top: 122px;">
+<div style="margin-top: 122px;" class="container">
     
+   <div class="container row" style="margin-left: 133px;">
     {% for photo in profile %}
-    <img src="{{ photo.photo.url}}" class="img-fluid img-thumbnail rounded-circle" style="width: 150px;" alt="Avatar" />
-    {{ user }}
-    <a href="{% url 'editprofile' %}"> <button>Edit Profile</button> </a>
-    <!-- <img class="rounded-circle" alt="80x80" src="{{ photo.photo.url}}" data-holder-rendered="true" style="width: 150px;"> -->
-    <!-- {% bs_icon 'person-fill' size='' color='orangered' %} -->
-    {{photo.posts}} Posts
-    {{photo.followers}} Followers
-    {{photo.following}} Following
-    <a class='btn btn-default'href="">{% bs_icon 'gear-fill' size='1.5em' color='orangered' %}</a>
+       <div class="col-md-4">
+        
+        <img src="{{ photo.photo.url}}" class="img-fluid img-thumbnail rounded-circle" style="width: 150px;" alt="Avatar" />
+        
+        <!-- <img class="rounded-circle" alt="80x80" src="{{ photo.photo.url}}" data-holder-rendered="true" style="width: 150px;"> -->
+        <!-- {% bs_icon 'person-fill' size='' color='orangered' %} -->
+        
+       </div>
+       <div class="col-md-4">
+        <b>{{ user }}</b>
+        <a href="{% url 'editprofile' %}"> <button class="button">Edit Profile</button> </a>
+        <a class='btn btn-default'href="">{% bs_icon 'gear' size='1.5em' color='black' %}</a>
 
-    
-
-
-    {% endfor %}
+        <div class="my-4">
+            <strong>
+               <span> {{photo.posts}} Posts</span>
+                <span class="photo">{{photo.followers}} Followers</span>
+                {{photo.following}} Following
+            </strong>
+        </div>
+        <b>{{photo.name}}</b>
+        
+       </div>
+       {% endfor %}
+   </div>
+   <hr>
    
 
 

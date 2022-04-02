@@ -6,17 +6,18 @@
 
 {% block styles %}
  {% bootstrap_css %}
-<!-- <link rel="stylesheet" href="{% static 'css/news.css' %}">  -->
+<link rel="stylesheet" href="{% static 'css/home.css' %}"> 
 {% endblock %}
 
 
 
-<div class="container " style="margin-top: 123px;">
-    <form  action="{%url 'post'%}" method="post" enctype="multipart/form-data">
+<div class="container post " style="margin-top: 123px;">
+  <h4>CREATE A NEW POST</h4>
+    <form  action="{%url 'post'%}" method="post" enctype="multipart/form-data" class="m-4">
         {%csrf_token%}
       
         {% bootstrap_form form%}
-        <input type="submit" class="btn btn-success btn-sm" value="Add Post">
+        <input type="submit" class="btn mb-4 btn-primary btn-sm" value="Add Post">
         
       </form>
 </div>

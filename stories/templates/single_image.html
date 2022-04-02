@@ -1,10 +1,18 @@
 {%extends "django_registration/base.html"%}
 {% load bootstrap5 %}
 {% load static %}
+{% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
 
 {% block content%}
-    <img src="{{image.image.url}}" alt="" srcset="" style="width: 223px;">
-    {{image.post_date}}
-    {{image.profile}}
+    <div class="container row" style="margin-top:123px;">
+        <p>See photos details</p>
+        <img src="{{image.image.url}}" alt="" srcset="" style="width: 223px;">
+        {{image.post_date}}
+        {{image.profile}}
+    </div>
+    
     <!-- {{user}} -->
 {% endblock %}

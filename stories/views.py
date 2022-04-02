@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.shortcuts import redirect, render
 from .models import Image, Profile
-from .forms import PostForm, ProfileForm
+from .forms import CommentForm, PostForm, ProfileForm
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 
@@ -70,6 +70,22 @@ def edit_profile(request):
     else:
         prof_form= ProfileForm()
     return render(request, 'update.html', {'prof_form': prof_form})
+
+@login_required(login_url='/accounts/login/')
+def comment(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = CommentForm(request.POST, request.FILES)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = current_user
+            comment.save()
+        return redirect('home')
+    else:
+        form= CommentForm()
+    return render(request, 'home', {'form': form})
+
+
         
 
 

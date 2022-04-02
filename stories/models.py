@@ -52,6 +52,12 @@ class Image(models.Model):
         return self.img_name
 
 
+class Comments(models.Model):
+    comment= models.CharField(max_length=255)
+    user= models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+
 
 
 
