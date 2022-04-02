@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.shortcuts import redirect, render
-from .models import Image
+from .models import Image, Profile
 from .forms import PostForm
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
@@ -13,6 +13,7 @@ def index(request):
 
 def home(request):
     image = Image.objects.all()
+    
     return render(request, 'home.html', {"image": image})
 
 
@@ -51,5 +52,7 @@ def new_post(request):
         form = PostForm()
     return render(request, 'post.html', {'form': form})
 
-
+def profile(request):
+    profile = Profile.objects.all()
+    return render(request, 'profile.html', {"profile": profile})
 

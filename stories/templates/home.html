@@ -1,5 +1,7 @@
 {%extends "django_registration/base.html"%}
 {% load bootstrap_icons %}
+{% load static%}
+{% load bootstrap5 %}
 
 {% block content %}
 <!-- {% bs_icon 'house' size='1.5em' %} -->
@@ -9,12 +11,53 @@
     <!-- {{ima.img_name}}
     {{img.image.url}} -->
     <!-- <img src="{{img.image.url}}" alt="all" style="width: 223px;"> -->
-    <a href="{% url 'image' img.id %}"><img src="{{img.image.url}}" class="card" alt="..." style="width: 233px;"> </a>
+    <!-- <a href="{% url 'image' img.id %}"><img src="{{img.image.url}}" class="card" alt="..." style="width: 233px;"> </a> -->
     <div class="row">
         {% autoescape on %}
         {{article.post| safe}}
        {% endautoescape %}
-      </div>
+    </div>
+    <div class="container">
+        <div class="card my-4" style="width: 34rem; ">
+            <ul class="list-group list-group-flush">
+                {%for img in profile %}
+                <img src="{{img.photo.url}}" class="rounded-circle" style="width: 150px;"
+  alt="Avatar" />
+                 {%endfor %}
+                <li class="list-group-item">{{img.profile}}</li>
+                <!-- <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li> -->
+              </ul>
+            <a href="{% url 'image' img.id %}"><img src="{{img.image.url}}" class="card" alt="..." style="width:34rem ;"> </a>
+            <div class="card-body">
+                <a class='btn btn-default'href="javascript:void(0);" onclick="addLike();">{% bs_icon 'heart-fill' size='1.5em' color='orangered' %}</a>
+              <p class="count"> <b>0 likes</b> </p>
+              <p class="card-text">{{img.post_date}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">An item</li>
+               <!-- <li class="list-group-item">A second item</li>
+              <li class="list-group-item">A third item</li>  -->
+            </ul>
+            <!-- <div class="card-body">
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div> -->
+          </div>
+    </div>
 
 {% endfor %}
+
+{% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        let numCount = 0 
+        let count = document.querySelector('.count')
+        function addLike () {
+        numCount ++
+        count.innerText = numCount
+}
+      </script>
+    {% bootstrap_javascript %}
+    {% endblock  %}
 {% endblock content %}

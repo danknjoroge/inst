@@ -1,7 +1,22 @@
 {%extends "django_registration/base.html"%}
+{% load static%}
+{% load bootstrap5 %}
+
+{% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
 
 {% block content %}
-<h1>Hello there, You</h1>
+<div class="container-fluid third">
+    <!-- <h1>Third</h1> -->
+    <div class="row container">
+        <div class="col-md-6 thid">
+
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+</div>
 
 
 
