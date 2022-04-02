@@ -52,7 +52,12 @@ def new_post(request):
         form = PostForm()
     return render(request, 'post.html', {'form': form})
 
+@login_required(login_url='/accounts/login/')
 def profile(request):
     profile = Profile.objects.all()
     return render(request, 'profile.html', {"profile": profile})
+
+@login_required(login_url='/accounts/login/')
+def edit_profile(request):
+
 

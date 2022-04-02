@@ -27,7 +27,7 @@
         </form>
 
             <a class="btn btn-default" aria-current="page" href="{% url 'home' %}">{% bs_icon 'house-fill' size='1.5em' color='orangered' %}</a>
-            <a class='btn btn-default'href="">{% bs_icon 'person-fill' size='1.5em' color='orangered' %}</a>
+            <a class='btn btn-default'href="{% url 'profile' %}">{% bs_icon 'person-fill' size='1.5em' color='orangered' %}</a>
             <a class='btn btn-default'href="{%url 'post'%}">{% bs_icon 'cloud-upload-fill' size='1.5em' color='orangered' %}</a>
 
             <!-- <h4>Welcome {{ user }}</h4> -->
