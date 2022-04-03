@@ -27,6 +27,7 @@ class Profile(models.Model):
 
 
 
+
 class Image(models.Model):
     image = models.ImageField(upload_to= 'images/', default="Image")
     image_name= models.CharField(max_length=44)
