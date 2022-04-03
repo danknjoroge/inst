@@ -5,6 +5,14 @@
 {% block styles %}
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <style>
+        @media screen and (min-width: 480px) and (max-width: 767px) {
+        .third{
+            margin-top: 223px;
+        }
+        h2{ font-family: 'Inspiration', cursive;}
+    }
+    </style>
 {% endblock %}
 
 {% block content %}
@@ -12,9 +20,18 @@
     <!-- <h1>Third</h1> -->
     <div class="row container">
         <div class="col-md-6 thid">
+            <h2>InstagramClone</h2>
+            <h3>Explore and interact with people worldwide</h3>
 
         </div>
-        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <h2>Have an Account?</h2>
+            <a class='btn btn-default' href="/accounts/login">Login</a>
+
+            <h2>Don't have an account?</h2>
+            <a class='btn btn-default' href="/accounts/register">Register</a>
+
+        </div>
     </div>
 </div>
 

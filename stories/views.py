@@ -16,7 +16,7 @@ def home(request):
     
     return render(request, 'home.html', {"image": image})
 
-
+@login_required(login_url='/accounts/login/')
 def search(request):
     if 'image' in request.GET and request.GET['image']:
         searchname = request.GET.get('image')
@@ -54,8 +54,9 @@ def new_post(request):
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
+    image = Image.objects.all()
     profile = Profile.objects.all()
-    return render(request, 'profile.html', {"profile": profile})
+    return render(request, 'profile.html', {"profile": profile, "image": image})
 
 @login_required(login_url='/accounts/login/')
 def edit_profile(request):

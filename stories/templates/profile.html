@@ -39,6 +39,12 @@
        {% endfor %}
    </div>
    <hr>
+   <div class="container">
+    {% for img in image %}
+        <img src="{{img.image.url}}" alt="" srcset="" style="width:14rem ; height:9rem;" class="my-1">
+
+    {% endfor %}
+   </div>
    
 
 

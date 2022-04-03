@@ -16,3 +16,21 @@
     background-size: 400px, 400px;
     
     } */
+
+    @media screen and (min-width: 480px) and (max-width: 767px) {
+        .third{
+            margin-top: 123px;
+        }
+    }
+
+h2{
+    color: orangered;
+    font-size: 42px;
+    font-weight: bold;
+    font-family: 'Inspiration', cursive;}
+
+.third a{
+    background-color: rgb(224, 230, 235);
+    color: black;
+    font-weight: bold;
+}
