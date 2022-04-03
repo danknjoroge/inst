@@ -4,12 +4,24 @@
 {% block styles %}
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+   <style>
+        @media screen and (min-width: 480px) and (max-width: 767px) {
+        .small{
+            margin-left: 22px;
+            width: 122px;
+
+        }
+        img{
+            width: 100px;
+        }
+    }
+   </style>
     
 {% endblock %}
 
 {% block content%}
     <div class="container row text-center " style="margin-top:99px; ">
-        <div class="container bg-light mb-4" style="margin-left: 210px;width: 52rem;">
+        <div class="container small bg-light mb-4" style="margin-left: 210px;width: 52rem;">
         <h4 style="text-align:center; color:orangered";>IMAGE DETAILS</h4>
         <img src="{{image.image.url}}" alt="" srcset="" style="width:44rem ; ">
         <h4>Image Name: {{image.image_name}}</h4>
