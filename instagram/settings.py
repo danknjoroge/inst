@@ -155,3 +155,7 @@ REGISTER_REDIRECT_URL = 'home'
 SIMPLE_BACKEND_REDIRECT_URL = 'home'
 
 
+# db-admin:moringa
+# db-pass:Access12
+
+
