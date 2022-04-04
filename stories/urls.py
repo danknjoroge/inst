@@ -20,6 +20,7 @@ urlpatterns = [
 
     path('accounts/', include('django_registration.backends.one_step.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    
     path('accounts/register/',
         RegistrationView.as_view(success_url=reverse_lazy('home')),
         name='django_registration_register'),
