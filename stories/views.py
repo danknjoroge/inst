@@ -13,8 +13,9 @@ def index(request):
 
 def home(request):
     image = Image.objects.all()
+    profile = Profile.objects.all()
     
-    return render(request, 'home.html', {"image": image})
+    return render(request, 'home.html', {"image": image, "profile": profile})
 
 @login_required(login_url='/accounts/login/')
 def search(request):
