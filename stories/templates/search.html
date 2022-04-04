@@ -4,6 +4,24 @@
 {% block styles %}
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <style>
+      small{
+
+       margin-left: 210px;
+       width: 52rem;
+      }
+
+       @media screen and (min-width: 480px) and (max-width: 767px) {
+       .small{
+           margin-left: 22px;
+           width: 122px;
+
+       }
+       img{
+           width: 100px;
+       }
+   }
+  </style>
 {% endblock %}
 
 {% block content %}
@@ -23,14 +41,18 @@
   {% if image %}
     {% for img in image %}
     <div class="container row text-center  ">
-      <div class="container bg-light mb-4" style="margin-left: 210px;width: 52rem;">
-      <h4 style="text-align:center; color:orangered";>IMAGE DETAILS</h4>
-      <img src="{{img.image.url}}" alt="" srcset="" style="width:44rem ; ">
-      <h4>Image Name: {{img.image_name}}</h4>
-      <p>Caption: {{img.image_caption}}</p>
-      <h4>Posted by: {{img.profile}}</h4>
-      <h4>Post Date: {{img.post_date}}</h4>
-      </div>
+      
+      <div class="col-sm-3"></div>
+        <div class="container col-md-4 small bg-light mb-4" style="width: 54rem;">
+        <h4 style="text-align:center; color:orangered";>IMAGE DETAILS</h4>
+        <img src="{{img.image.url}}" alt="" srcset="" style="width:22rem ; ">
+        <h4>Image Name: {{img.image_name}}</h4>
+        <p>Caption: {{img.image_caption}}</p>
+        <h4>Posted by: {{img.profile}}</h4>
+        <h4>Post Date: {{img.post_date}}</h4>
+        <h4>Likes: {{img.likes}}</h4>
+        </div>
+        <div class="col-sm-3"></div>
   </div>
     {% endfor %}
   {% endif %}

@@ -12,7 +12,7 @@
       .int{
         margin: top 334px;
       }
-      .cont{
+      .card{
         margin-left: 0px;
       }
       .cont .main{
@@ -22,6 +22,7 @@
         width: 100px;
       }
   }
+  
   </style>
 
 {% endblock %}
@@ -30,7 +31,7 @@
 <div class="container int" style="margin-top:123px;">
   <!-- <h1>Hello {{ user }}, You have successfully logged in!</h1> -->
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-6">
 
 {%for img in image %}
 
@@ -40,8 +41,8 @@
     {{article.post| safe}}
    {% endautoescape %}
 </div> -->
-<div class="container cont" style="margin-left: 80px">
-    <div class="card main my-4" style="width: 44rem; ">
+<div class="container cont" style="margin-left: 31px;">
+    <div class="card main my-4" style="width: 27rem; ">
         <ul class="list-group list-group-flush">
             {%for img in profile %}
             
@@ -49,7 +50,7 @@
             <li class="list-group-item">{{img.profile}}</li>
             
           </ul>
-        <a href="{% url 'image' img.id %}"><img src="{{img.image.url}}" class="card" id="img" alt="..." style="width:44rem ;"> </a>
+        <a href="{% url 'image' img.id %}"><img src="{{img.image.url}}" class="card" id="img" alt="..." style="width:27rem ;"> </a>
         <div class="card-body">
             <a class='btn btn-default'href="javascript:void(0);" onclick="addLike();">{% bs_icon 'heart-fill' size='1.5em' color='orangered' %}</a>
           <p class="count"> <b>0 likes</b> </p>
@@ -71,9 +72,9 @@
 
 {% endfor %}
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3" style="margin-left: 83px; margin-top: 73px;">
       {% for prof in profile%}
-      <p>Profiles</p>
+      <!-- <p>Profiles</p> -->
       <!-- <button class="btn btn-primary">Follow</button> -->
 
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdDXECBv76wa78obNrJNqayP3o7cy4RaZNg_l_YuhSzP6qoWuHr6BTtn8JgNuHFVmSaf4&usqp=CAU" class="img-fluid img-thumbnail rounded-circle" style="width: 50px;" alt="Avatar" />
@@ -84,6 +85,8 @@
       {% endfor %}
 
   </div>
+
+
 
 </div>
 

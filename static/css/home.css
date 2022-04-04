@@ -38,6 +38,11 @@ hr{
     width:80% ;
     margin-left:111px ;
 }
+.small{
+    background-color:red;
+    margin-left: 210px;
+    width: 52rem;
+   }
 
 /* @media screen and (min-width: 480px) and (max-width: 767px) {
     .int{
